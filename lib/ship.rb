@@ -2,8 +2,8 @@ class Ship
   attr_reader :coordinates, :hits
 
   def initialize(coordinates)
-    @coordinates = coordinates
-    @hits = []
+    @coordinates ||= coordinates
+    @hits ||= []
   end
 
   def hit(coordinate)
