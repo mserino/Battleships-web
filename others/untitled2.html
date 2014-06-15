@@ -1,0 +1,27 @@
+	<h2>Destroyer:</h2>
+	<form action='/place_destroyer' method='POST'>
+		<input type='text' name='destroyer1' placeholder='Type the coordinate for the ship'>
+		<input type='text' name='destroyer2' placeholder='Type the coordinate for the ship'>		
+		<button>Go!</button>
+	</form>
+
+	<% if @message_destroyer %>
+		<strong><%= @message_destroyer %></strong>
+	<% else %>
+		<p>Destroyer placed at <%= session[:destroyer].coordinates.locations.map {|elem| elem.location} %></p>
+	<% end %>
+
+
+	<h2>Cruiser:</h2>
+	<form action='/place_cruiser' method='POST'>
+		<input type='text' name='cruiser1' placeholder='Type the coordinate for the ship'>
+		<input type='text' name='cruiser2' placeholder='Type the coordinate for the ship'>		
+		<input type='text' name='cruiser3' placeholder='Type the coordinate for the ship'>	
+		<button>Go!</button>
+	</form>
+
+	<% if @message_cruiser %>
+		<strong><%= @message_cruiser %></strong>
+	<% else %>
+		<p>Cruiser placed at <%= session[:cruiser].coordinates.locations.map {|elem| elem.location} %></p>
+	<% end %>

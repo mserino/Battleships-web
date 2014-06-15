@@ -1,0 +1,28 @@
+<h1>Place your Cruisers</h1>
+
+<form action='/place_cruiser1' method='post'>
+	<p>Cruiser 1:
+	<input type='text' name='c1' placeholder='Type here'>
+	<input type='text' name='c2' placeholder='Type here'>
+	<input type='text' name='c3' placeholder='Type here'>	
+	<button type='submit'>Save</button>
+	</p>
+</form>
+<form action='/place_cruiser2' method='post'>
+	<p>Cruiser 2:
+	<input type='text' name='c4' placeholder='Type here'>
+	<input type='text' name='c5' placeholder='Type here'>
+	<input type='text' name='c6' placeholder='Type here'>	
+	<button type='submit'>Save</button>
+	</p>
+</form>
+
+<% if session[:ships].include? :cruiser1 %>
+<p>Cruiser 1 located at: <%= session[:ships][:cruiser1].coordinates.locations.map {|elem| elem.location } %></p>
+<% end %>
+
+<% if session[:ships].include? :cruiser2 %>
+<p>Cruiser 2 located at: <%= session[:ships][:cruiser2].coordinates.locations.map {|elem| elem.location } %></p>
+<% end %>
+
+<h3><a href='/login'>< Back</a></h3>

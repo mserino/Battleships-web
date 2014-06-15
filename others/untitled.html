@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Battleships</title>
+</head>
+<body>
+	<h1>Welcome to Battleships!</h1>
+
+	<h2>Place your ship</h2>
+	<form action='/place_ship' method='POST'>
+		<input type='text' name='coordinates' placeholder='Type the coordinate for the ship'>
+		<button>Go!</button>
+	</form>
+
+	<% if session[:ship].coordinates[0].location == 'B1' %>
+	<p>You have successfully placed a ship</p>
+	<% end %>
+
+	<h2>Try to hit the ship</h2>
+	<form action='/shoot' method='POST'>
+		<input type='text' name='shooting' placeholder='Try to hit a ship'>
+		<button>Fire!</button>
+	</form>
+
+	<p>Ship: <%= session[:ship].coordinates[0].location %></p>
+
+	<p>Hits: <%= session[:ship].hits %></p>
+
+	<% if session[:ship].hit? %>
+	<p>Ship has been hit at <%= session[:ship].hits[0].location %>!</p>
+	<% end %>
+
+</body>
+</html>

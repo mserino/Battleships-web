@@ -6,7 +6,7 @@ class Coordinates
 
   def initialize(*args)
     @locations = args.sort!
-    raise 'Invalid coordinates' unless valid?
+    # raise 'Invalid coordinates' unless valid?
   end
 
   def valid?

@@ -1,0 +1,26 @@
+<h1>Place your Destroyers</h1>
+
+<form action='/place_destroyer1' method='post'>
+	<p>Destroyer 1:
+	<input type='text' name='d1' placeholder='Type here'>
+	<input type='text' name='d2' placeholder='Type here'>
+	<button type='submit'>Save</button>
+	</p>
+</form>
+<form action='/place_destroyer2' method='post'>
+	<p>Destroyer 2:
+	<input type='text' name='d3' placeholder='Type here'>
+	<input type='text' name='d4' placeholder='Type here'>
+	<button type='submit'>Save</button>
+	</p>
+</form>
+
+<% if session[:ships].include? :destroyer1 %>
+<p>Destroyer 1 located at: <%= session[:ships][:destroyer1].coordinates.locations.map {|elem| elem.location } %></p>
+<% end %>
+
+<% if session[:ships].include? :destroyer2 %>
+<p>Destroyer 2 located at: <%= session[:ships][:destroyer2].coordinates.locations.map {|elem| elem.location } %></p>
+<% end %>
+
+<h3><a href='/login'>< Back</a></h3>
